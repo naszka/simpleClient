@@ -25,7 +25,7 @@ class MyServer(BaseHTTPRequestHandler):
            length = int(self.headers['Content-Length'])
            post_data = self.rfile.read(length).decode('utf-8')
            de_data=json.loads(post_data)
-           de_data["list"].append(1)           
+           #de_data["list"].append(1)           
            
            resp=json.dumps(de_data)
            self.wfile.write(resp.encode("utf-8"))
