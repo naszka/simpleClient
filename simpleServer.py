@@ -6,6 +6,9 @@ import time
 import urllib
 import json
 
+from maradek.maradek import *
+
+
 hostName = ""
 hostPort = 8000
 
@@ -25,6 +28,7 @@ class MyServer(BaseHTTPRequestHandler):
            length = int(self.headers['Content-Length'])
            post_data = self.rfile.read(length).decode('utf-8')
            de_data=json.loads(post_data)
+           solution=assign_holidays(de_data)
            #de_data["list"].append(1)           
            
            resp=json.dumps(de_data)
